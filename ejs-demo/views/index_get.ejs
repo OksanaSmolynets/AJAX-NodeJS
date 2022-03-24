@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="container">
+  <main>
+    <button name="foo" value="send">Download user info</button>
+    <div class="jumbotron"></div>
+  </main>
+</body>
+<script>
+  $('button').click(function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8081/users",
+      data: {},
+      success: function (data) {
+        $('.jumbotron').html(data);
+      }
+    });
+  });
+</script>
+
+</html>
